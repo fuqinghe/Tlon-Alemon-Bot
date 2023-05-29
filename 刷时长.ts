@@ -1,4 +1,5 @@
 import { plugin, Messagetype } from 'alemon'
+import { createQrcode } from '../src/alemon/qrcode'
 import axios from 'axios';
 import fs from 'fs'
 const dirpath = "example/刷时长"
@@ -25,12 +26,12 @@ export class 刷时长 extends plugin {
             ]
         })
     }
-    async 绑定QQ(e: Messagetype) {
-        var qq_id = e.msg.content.replace(/#|<@![0-9a-zA-Z]+> 绑定QQ/g, "")
+    async 绑定QQ(e: Messagetype){
+        var qq_id = e.msg.content.replace(/#|(<@![0-9a-zA-Z]+>| |绑定QQ)/g, "")
         var data = {
             "qq": qq_id,
         }
-        var id = e.msg.guild_id
+        const id = e.msg.author.id
         var json = JSON.parse(fs.readFileSync(dirpath + "/" + filename, "utf8"));//读取文件
         if(!json.hasOwnProperty(id)) {//如果json中不存在该用户
             json[id] = data
@@ -49,7 +50,7 @@ export class 刷时长 extends plugin {
         let 时间 = new Date
         const 时 = `0${时间.getHours()}`.slice(-2);
         const 分 = `0${时间.getMinutes()}`.slice(-2);
-        var id = e.msg.guild_id
+        var id = e.msg.author.id
         if(json.hasOwnProperty(id)) {//如果json中存在该用户
             await e.reply("使用已记录的QQ")
             qq = JSON.stringify(json[id].qq)
@@ -62,9 +63,11 @@ export class 刷时长 extends plugin {
         const res = response.data;
         let num
         if (res.code === 200 ){
-            num = `已为${qq}刷取QQ音乐\n听歌时长${时}时${分}分\n请前往QQ音乐查看排行榜`
+            num = `已为${qq.substring(0, 2) + qq.substring(2, qq.length - 2).replace(/./g, "*") + qq.substring(qq.length - 2)}刷取QQ音乐\n听歌时长${时}时${分}分`
         }
         e.reply(num);
+        const img = await createQrcode('https://y.qq.com/m/client/vipexchange/index.html')
+        if (img) e.postImage(img, '扫码查看听歌排行榜')
         return false
     }
 }
