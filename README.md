@@ -7,7 +7,13 @@
 
 - [x] 我的超能力
 
-- [x] UC互转(PS:水插件)
+- [x] UC互转(PS：水插件)
+
+- [x] 查战力
+
+- [x] 禁言(秒|分)
+
+- [x] 我进频道多久了
 
 <details>
 <summary>自定义倒计时</summary>
@@ -87,9 +93,54 @@
 </div>
 </details>
 
+<details>
+<summary>查战力</summary>
+<div align="center">
+
+#### 介绍
+查询王者英雄最低战力所在地
+
+#### 安装&使用教程
+下载压缩包解压将[查战力.TS](https://gitee.com/Tloml-Starry/Tlon-Alemon-Bot/blob/master/查战力.ts)放到`alemon-bot\example`位置即可,使用指令`查战力+英雄名`
+<p align="center">
+<img width = "600" src="picture/TS查战力示例.png">
+</p>
+</div>
+</details>
+
+<details>
+<summary>禁言</summary>
+<div align="center">
+
+#### 介绍
+使用机器人禁言他人
+
+#### 安装&使用教程
+下载压缩包解压将[禁言.TS](https://gitee.com/Tloml-Starry/Tlon-Alemon-Bot/blob/master/禁言.ts)放到`alemon-bot\example`位置即可,使用指令`禁言@成员xx秒` `禁言@成员xx分钟`
+<p align="center">
+<img width = "600" src="picture/TS禁言示例.png">
+</p>
+</div>
+</details>
+
+<details>
+<summary>我进频道多久了</summary>
+<div align="center">
+
+#### 介绍
+查询自己进入频道多久
+
+#### 安装&使用教程
+下载压缩包解压将[我进频道多久了.TS](https://gitee.com/Tloml-Starry/Tlon-Alemon-Bot/blob/master/我进频道多久了.ts)放到`alemon-bot\example`位置即可,使用指令`我进频道多久了`
+<p align="center">
+<img width = "600" src="picture/TS我进频道多久了示例.png">
+</p>
+</div>
+</details>
+
 #### 开发不易
 
  * 点个Star就是对我最大的支持!或者为我赞助提供动力[爱发电](https://afdian.net/a/Tloml-Starry)
  * 一起玩耍↓
  * Q群：[392665563](https://jq.qq.com/?_wv=1027&k=VQAEpAlH)
- * 我的频道：[Tlon-Sky](https://pd.qq.com/s/bclm3owlx)
+ * 我的频道：[原神/游戏/交友✓](https://pd.qq.com/s/cq1chxi9b)
